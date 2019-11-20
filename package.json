@@ -1,0 +1,27 @@
+{
+  "name": "0-waste-web-app",
+  "version": "1.0.0",
+  "description": "0 WASTE WEB APP",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulinaBodio/0-WASTE-WEB-APP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulinaBodio/0-WASTE-WEB-APP/issues"
+  },
+  "homepage": "https://github.com/PaulinaBodio/0-WASTE-WEB-APP#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
