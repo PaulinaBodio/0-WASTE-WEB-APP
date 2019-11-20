@@ -48,16 +48,19 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: url('img/bg.jpg') no-repeat fixed;
+    background-position: cover;
 }
 
-main p {
+main h2 {
     margin: 1.5%;
 }
 
 .search-bar {
     width: 30%;
     height: 10%;
-    border: 1px solid var(--lime-green); 
+    border: 1px solid var(--lime-green);
+    background-color: white; 
 }
 
 .recipes-banner {
