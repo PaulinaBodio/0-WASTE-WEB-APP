@@ -1,3 +1,4 @@
 #Don't track these files od folders:
 /node_modules
 .env
+/dist
