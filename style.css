@@ -31,13 +31,13 @@ nav {
     background-color: var(--green);
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
 }
 
-li {
+nav ul li {
     margin: 1.5%;
 }
 
@@ -67,18 +67,29 @@ main h2 {
 
 .recipes-banner {
     width: 100vw;
-    height: 70vh;
+    /* height: 70vh; */
     border: 2px solid var(--lime-green);
     margin-top: 1%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    /* flex-direction: row; */
+    /* flex-wrap: block; */
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
 
 .recipe {
-    width: 25%;
+    /* width: max-content;  */
     margin: 1%;
+    padding: 1% ;
     border: 1px solid var(--lime-green);
+    display:block;
+   
 
+}
+.recipe-information
+{
+    max-width:100%;
+    text-align: justify;
 }
 
 footer {
