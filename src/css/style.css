@@ -2,19 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-
 }
 
 :root {
+    --dark-green: #0a2401;
     --green: #95b038;
     --lime-green: #dbe586;
-
+    --cheese-yellow: #e8a000;
+    --yellow: #ffd643;
+    --main-font: 'Raleway', sans-serif;
 }
 
 
 body {
     background-color: whitesmoke;
+    font-family: var(--main-font);
+
 }
 
 .container {
@@ -24,34 +27,32 @@ body {
 }
 
 
-nav {
+.top-bar {
     width: 100%;
     height: 8vh;
     font-weight: 300;
     background-color: var(--green);
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: whitesmoke;
+    letter-spacing: 5px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav ul li {
-    margin: 1.5%;
+.top-bar h2 {
+    padding: .5%;
+    margin-left: 2%;
+    font-size: 2rem;
 }
 
 main {
     width: 100vw;
     height: 70vh;
-    border: 2px solid var(--lime-green);
-    margin-top: 1%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: url('/src/img/bg.jpg') no-repeat fixed;
     background-position: cover;
+    color: var(--dark-green);
 }
 
 main h2 {
@@ -61,34 +62,93 @@ main h2 {
 .search-bar {
     width: 30%;
     height: 10%;
+    padding: 2%;
+    font-size: 1rem;
     border: 1px solid var(--lime-green);
     background-color: white; 
 }
 
+#search {
+    width: 30%;
+    height: 10%;
+    margin: 1%;
+    background-color: var(--green);
+    font-family: var(--main-font);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    color: var(--dark-green);
+    transition: .5s;
+}
+
+#search:hover {
+    background-color: var(--lime-green);
+}
+
 .recipes-banner {
     width: 100vw;
-    /* height: 70vh; */
-    border: 2px solid var(--lime-green);
-    margin-top: 1%;
-    display: grid;
-    /* flex-direction: row; */
-    /* flex-wrap: block; */
-    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: .5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-items: center;
+    align-items: center;
 }
 
 .recipe {
-    /* width: max-content;  */
-    margin: 1%;
-    padding: 1% ;
+    width: 32%;
+    margin: .5%;
+    padding: 2.5% ;
     border: 1px solid var(--lime-green);
+    border-radius: 2%;
     display:block;
-   
-
+    background-color: white;
+    overflow: hidden;
 }
+
+.recipe h3 {
+    text-align: center;
+    justify-self: center;
+    font-size: 1.5rem;
+}
+
+.recipe img {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.recipe ul {
+    font-weight: 600;
+}
+
+.recipe li {
+    margin-left: 10%;
+    font-weight: 400;
+}
+
+.recipe p {
+    text-decoration: none;
+    color: var(--green);
+    font-size: 1.3rem;
+    padding-top: 8%;
+    display: block;
+    transition: .5s;
+}
+
+.recipe p:hover {
+    cursor: pointer;
+    color: var(--dark-green);
+}
+
+
 .recipe-information
 {
     max-width:100%;
+    text-align: justify;
+}
+
+.descrption {
+    margin: 1%;
     text-align: justify;
 }
 
@@ -96,6 +156,90 @@ footer {
     width: 100vw;
     height: 20vh;
     margin-top: 1%;
-    background-color: tomato;
+    background-color: var(--lime-green);
+    text-align: center;
+}
 
+footer p {
+    margin: 4%;
+    color: var(--dark-green);
+}
+
+
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+    main {
+        height: 100vh;
+        color: white;
+    }
+
+    main h2 {
+        margin: 5%;
+    }
+
+    .search-bar {
+        width: 80%;
+        height: 8%;
+    }
+
+    #search {
+        width: 80%;
+        height: 8%;
+        margin-top: 5%;
+        font-size: 1.5rem;
+    }
+
+    .recipe {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    
+    main {
+        height: 100vh;
+        color: white;
+    }
+
+    .search-bar {
+        width: 80%;
+        height: 8%;
+        padding: 2%;
+    }
+
+    #search {
+        width: 80%;
+        height: 8%;
+        margin-top: 5%;
+        font-size: 1.5rem;
+    }
+
+    .recipes-banner {
+        flex-direction: column;
+    }
+
+    .recipe {
+        width: 98%;
+    }
+   
+}
+
+
+
+/*custom scroll-bar*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px whitesmoke; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cheese-yellow);
 }
