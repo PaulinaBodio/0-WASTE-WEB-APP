@@ -35,6 +35,8 @@ body {
     font-family: 'Open Sans Condensed', sans-serif;
     color: whitesmoke;
     letter-spacing: 5px;
+    position: fixed;
+    z-index: 2;
 }
 
 .top-bar h2 {
@@ -44,6 +46,7 @@ body {
 }
 
 main {
+    margin-top: 8vh;
     width: 100vw;
     height: 70vh;
     display: flex;
@@ -53,10 +56,24 @@ main {
     background: url('/src/img/bg.jpg') no-repeat fixed;
     background-position: cover;
     color: var(--dark-green);
+    position: relative;
+}
+
+.filter {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 95%;
+    height: 90%;
+}
+
+main h1 {
+    font-size: 3rem;
+    z-index: 1;
 }
 
 main h2 {
     margin: 1.5%;
+    z-index: 1;
 }
 
 .search-bar {
@@ -66,6 +83,7 @@ main h2 {
     font-size: 1rem;
     border: 1px solid var(--lime-green);
     background-color: white; 
+    z-index: 1;
 }
 
 #search {
@@ -79,6 +97,7 @@ main h2 {
     border: none;
     color: var(--dark-green);
     transition: .5s;
+    z-index: 1;
 }
 
 #search:hover {
@@ -169,7 +188,6 @@ footer p {
 @media only screen and (min-width: 641px) and (max-width: 1024px) {
     main {
         height: 100vh;
-        color: white;
     }
 
     main h2 {
@@ -197,7 +215,10 @@ footer p {
     
     main {
         height: 100vh;
-        color: white;
+    }
+
+    main h1 {
+        font-size: 2rem;
     }
 
     .search-bar {
