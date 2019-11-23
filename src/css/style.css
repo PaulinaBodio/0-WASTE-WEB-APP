@@ -13,11 +13,9 @@
     --main-font: 'Raleway', sans-serif;
 }
 
-
 body {
     background-color: whitesmoke;
     font-family: var(--main-font);
-
 }
 
 .container {
@@ -110,7 +108,7 @@ main h2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
 }
 
@@ -158,7 +156,6 @@ main h2 {
     cursor: pointer;
     color: var(--dark-green);
 }
-
 
 .recipe-information
 {
