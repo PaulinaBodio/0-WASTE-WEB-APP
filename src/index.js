@@ -3,13 +3,13 @@ import img from './img/bg.jpg';
 const fetch = require('node-fetch');
 import jsonFile from '../variables.json'
 
-var APIHOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
-var APIKEY = jsonFile.API_KEY;
+const APIHOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
+const APIKEY = jsonFile.API_KEY;
 
-var urlInfo = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information";
-var element = document.querySelector('.recipes-banner');
-var searchBar = document.querySelector('.search-bar');
-
+const urlInfo = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information";
+const element = document.querySelector('.recipes-banner');
+const searchBar = document.querySelector('.search-bar');
+const searchButton = document.getElementById("search");
 
 document.getElementById('search').addEventListener('click', recipes);
 
@@ -99,6 +99,15 @@ function information(id) {
 
         })
 }
+
+// wyszukiwanie za pomocą przycisku enter
+searchBar.addEventListener("keyup", function(event) {
+    // wcisniecie entera na klawiaturze
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      searchButton.click();
+    }
+  });
 
 
 
