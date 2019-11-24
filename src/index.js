@@ -1,21 +1,32 @@
 import './css/style.css'
 import img from './img/bg.jpg';
-require('dotenv').config({ path: '../,env' });
 const fetch = require('node-fetch');
+import jsonFile from '../variables.json'
 
-var APIHOST = process.env.DB_HOST;
-var APIKEY = process.env.DB_KEY;
-console.log(APIHOST);
+var APIHOST = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
+var APIKEY = jsonFile.API_KEY;
+
+var urlInfo = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information";
 var element = document.querySelector('.recipes-banner');
+var searchBar = document.querySelector('.search-bar');
+
+
 document.getElementById('search').addEventListener('click', recipes);
 
-
 function recipes() {
-    fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=apples%252Cflour%252Csugar", {
+    let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=';
+    let typedIngred = searchBar.value;
+    typedIngred = typedIngred.replace(/\s/g, '');
+    typedIngred = typedIngred.replace(/,/g, '%252C'); //usuwam spacje i dodaje 252C
+    let typedIngredTab = typedIngred.split("%252C"); // tworze tablice ze skladnikami
+    
+    urlSearch += typedIngred;
+    console.log(urlSearch)
+    fetch(urlSearch, {
             "method": "GET",
             "headers": {
-                "x-rapidapi-host":APIHOST,
-                "x-rapidapi-key":APIKEY
+                "x-rapidapi-host": APIHOST,
+                "x-rapidapi-key": APIKEY
             }
         })
         .then(response => {
@@ -26,12 +37,18 @@ function recipes() {
             data.forEach(rec => {
                 output +=
                     `   
-                <div class="recipe">
+                <div class="recipe ${rec.id}">
                     <h3>${rec.title}</h3> <br>
                     <img src="${rec.image}" alt="">
-                    <div class="recipe-ingredients ingr-${rec.id}"> 
+                    <div class="recipe-ingredients id-${rec.id}"> 
                     <ul> Ingredients
              `;
+                rec.usedIngredients.forEach(elem => {
+                    output +=
+                        `
+                <li>${elem.original}</li>
+                    `;
+                });
                 rec.missedIngredients.forEach(item => {
                     output +=
                         `
@@ -42,20 +59,51 @@ function recipes() {
                     `
              </ul>
              </div>
-                    <div class="recipe-information ${rec.id}"> </div>
+             <p class="show-more id-${rec.id}">Show more...</p>
+                 <div class="recipe-information id-${rec.id}"> </div>
                 </div>
             `;
 
-            ids.push(`${rec.id}`)
+                ids.push(`${rec.id}`)
             })
-            
             element.innerHTML = output;
-            console.log(ids);
-            // printInfo(ids);
+            return ids;
+
+        }).then(tab => {
+            tab.forEach(id => {
+                document.querySelector(`.show-more.id-${id}`).addEventListener('click', function () {
+                    information(id);
+                }, {once:true,} )
+            });
+
         }).catch(err => {
             console.log(err);
         });
 }
+
+function information(id) {
+    fetch(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": APIHOST,
+                "x-rapidapi-key": APIKEY
+            }
+        })
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            const details = document.createElement('p')
+            details.innerHTML = data.instructions;
+            document.querySelector(`.recipe-information.id-${id}`).appendChild(details);
+
+
+        })
+}
+
+
+
+
+
 // const printInfo = (ids) =>
 // {
 // ids.forEach(elem =>{

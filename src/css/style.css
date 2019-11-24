@@ -100,6 +100,7 @@ main h2 {
 
 #search:hover {
     background-color: var(--lime-green);
+    cursor: pointer;
 }
 
 .recipes-banner {
@@ -145,17 +146,32 @@ main h2 {
 
 .recipe p {
     text-decoration: none;
-    color: var(--green);
+    color: black;
     font-size: 1.3rem;
     padding-top: 8%;
     display: block;
     transition: .5s;
 }
 
-.recipe p:hover {
+/* .recipe p:hover {
     cursor: pointer;
     color: var(--dark-green);
+} */
+
+p.show-more
+{
+    text-decoration: none;
+    color: var(--green);
+    font-size: 1.3rem;
+    padding-top: 8%;
+    display: block;
+    transition: .5s;
 }
+p.show-more:hover {
+    cursor: pointer;
+    color: var(--dark-green);
+    cursor: pointer;
+} 
 
 .recipe-information
 {
@@ -170,7 +186,7 @@ main h2 {
 
 footer {
     width: 100vw;
-    height: 20vh;
+    /* height: 20vh; */
     margin-top: 1%;
     background-color: var(--lime-green);
     text-align: center;
