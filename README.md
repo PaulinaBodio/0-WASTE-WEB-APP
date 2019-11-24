@@ -9,7 +9,7 @@ then, create object with key - API_KEY and assign to it your API_KEY
 
 ```
 {
-    "API_KEY" = "your_api_key" 
+    "API_KEY" : "your_api_key" 
 }
 ```
 # Installation
