@@ -118,13 +118,3 @@ function scrollToRecipes() {
     $container.animate({scrollTop: $scrollTo.offset().top },1500);
 }
 
-
-// const printInfo = (ids) =>
-// {
-// ids.forEach(elem =>{
-// let div1 = document.querySelector(`.recipe-ingredients .${elem}`);
-
-
-// })
-
-//}
