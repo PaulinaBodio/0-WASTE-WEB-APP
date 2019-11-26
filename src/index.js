@@ -79,6 +79,7 @@ function recipes() {
         }).catch(err => {
             console.log(err);
         });
+        scrollToRecipes();
 }
 
 function information(id) {
@@ -106,11 +107,16 @@ searchBar.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       searchButton.click();
+    //   scrollToRecipes();
     }
   });
 
-
-
+function scrollToRecipes() {
+    let $container = $("html,body");
+    let $scrollTo = $('.recipes-banner');
+    
+    $container.animate({scrollTop: $scrollTo.offset().top },1500);
+}
 
 
 // const printInfo = (ids) =>
