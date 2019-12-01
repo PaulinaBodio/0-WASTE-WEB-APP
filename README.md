@@ -48,3 +48,6 @@ npm run build
 ```
 npm run dev
 ```
+
+## Issues and to-do:
+## Plans for future development:
