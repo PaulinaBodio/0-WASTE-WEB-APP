@@ -14,11 +14,11 @@ const searchButton = document.getElementById("search");
 document.getElementById('search').addEventListener('click', recipes);
 
 function recipes() {
-    let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=';
+    let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=9&ranking=1&ignorePantry=false&ingredients=';
     let typedIngred = searchBar.value;
     typedIngred = typedIngred.replace(/\s/g, '');
-    typedIngred = typedIngred.replace(/,/g, '%252C'); //usuwam spacje i dodaje 252C
-    let typedIngredTab = typedIngred.split("%252C"); // tworze tablice ze skladnikami
+    typedIngred = typedIngred.replace(/,/g, '%252C'); // remove spaces and add 252C
+    let typedIngredTab = typedIngred.split("%252C"); // create table with ingrediens
     
     urlSearch += typedIngred;
     console.log(urlSearch)
@@ -101,9 +101,9 @@ function information(id) {
         })
 }
 
-// wyszukiwanie za pomocą przycisku enter
+// searching with enter button
 searchBar.addEventListener("keyup", function(event) {
-    // wcisniecie entera na klawiaturze
+    // for enter key down
     if (event.keyCode === 13) {
       event.preventDefault();
       searchButton.click();

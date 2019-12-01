@@ -193,6 +193,8 @@ footer {
 }
 
 footer p {
+    font-weight: 600;
+    font-size: 0.8rem;
     margin: 4%;
     color: var(--dark-green);
 }
