@@ -15,11 +15,7 @@ document.getElementById('search').addEventListener('click', recipes);
 
 function recipes() {
     let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=';
-    let typedIngred = searchBar.value;
-    typedIngred = typedIngred.replace(/\s/g, '');
-    typedIngred = typedIngred.replace(/,/g, '%252C'); // remove spaces and add 252C
-    let typedIngredTab = typedIngred.split("%252C"); // create table with ingrediens
-    
+    let typedIngred = searchBar.value;   
     urlSearch += typedIngred;
     console.log(urlSearch)
     fetch(urlSearch, {
@@ -94,18 +90,34 @@ function information(id) {
             return response.json();
         }).then(data => {
             const details = document.createElement('p')
+            if(Boolean(data.instructions))   
             details.innerHTML = data.instructions;
-            document.querySelector(`.recipe-information.id-${id}`).appendChild(details);
-            document.querySelector(`.show-more.id-${id}`).innerHTML = "Show less..."
-        })
+            else
+            details.innerHTML = "Unfortunately, there are no more details about the recipe.";
 
-        document.querySelector(`.show-more.id-${id}`).addEventListener('click', function hide() {
-            document.querySelector(`.recipe-information.id-${id}`).style.display = "none";
-            document.querySelector(`.show-more.id-${id}`).innerHTML = "Show more..."
-        });
+            document.querySelector(`.recipe-information.id-${id}`).appendChild(details);
+            document.querySelector(`.show-more.id-${id}`).innerHTML = "Show less...";
+            document.querySelector(`.show-more.id-${id}`).addEventListener('click', function () {
+                hideOrShow(id);
+        })
+    })      
 }
 
-
+// function for Showing and Hiding recipe informations
+function hideOrShow(id) {
+    let showButton = document.querySelector(`.show-more.id-${id}`);
+    let recipeInfo = document.querySelector(`.recipe-information.id-${id}`);
+    if(showButton.textContent=='Show more...')
+    {
+        recipeInfo.style.display = "initial";
+        showButton.innerHTML = "Show less..."
+    }
+    else
+    {
+        recipeInfo.style.display = "none";
+        showButton.innerHTML = "Show more..."
+    }
+}
 
 
 // searching with enter button
@@ -124,14 +136,3 @@ function scrollToRecipes() {
     
     $container.animate({scrollTop: $scrollTo.offset().top },1500);
 }
-
-
-// const printInfo = (ids) =>
-// {
-// ids.forEach(elem =>{
-// let div1 = document.querySelector(`.recipe-ingredients .${elem}`);
-
-
-// })
-
-//}
