@@ -14,7 +14,7 @@ const searchButton = document.getElementById("search");
 document.getElementById('search').addEventListener('click', recipes);
 
 function recipes() {
-    let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=9&ranking=1&ignorePantry=false&ingredients=';
+    let urlSearch = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=';
     let typedIngred = searchBar.value;
     typedIngred = typedIngred.replace(/\s/g, '');
     typedIngred = typedIngred.replace(/,/g, '%252C'); // remove spaces and add 252C
@@ -96,10 +96,17 @@ function information(id) {
             const details = document.createElement('p')
             details.innerHTML = data.instructions;
             document.querySelector(`.recipe-information.id-${id}`).appendChild(details);
-
-
+            document.querySelector(`.show-more.id-${id}`).innerHTML = "Show less..."
         })
+
+        document.querySelector(`.show-more.id-${id}`).addEventListener('click', function hide() {
+            document.querySelector(`.recipe-information.id-${id}`).style.display = "none";
+            document.querySelector(`.show-more.id-${id}`).innerHTML = "Show more..."
+        });
 }
+
+
+
 
 // searching with enter button
 searchBar.addEventListener("keyup", function(event) {
