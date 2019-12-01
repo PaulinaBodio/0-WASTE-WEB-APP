@@ -54,3 +54,8 @@ npm run dev
 ## Issues and to-do:
 * Fixing recipes display
 ## Plans for future development:
+
+## Authors:
+* https://github.com/PaulinaBodio
+* https://github.com/sh3ev
+* https://github.com/florauson
