@@ -50,4 +50,5 @@ npm run dev
 ```
 
 ## Issues and to-do:
+* Fixing recipes display
 ## Plans for future development:
