@@ -1,7 +1,7 @@
 # 0 WASTE WEB APP
 
 ## Welcome!
-Our app was created to help you use all the leftovers or raw products you have. Simply type your inngredients to a search bar and hit enter! Take care of our planet and stop wasting your food :) 
+Our app was created to help you use all the leftovers or raw products you have. Simply type your ingredients to a search bar and hit enter! Take care of our planet and stop wasting your food :) 
 
 ### Technologies
 * HTML
