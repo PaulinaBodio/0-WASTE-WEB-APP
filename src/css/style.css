@@ -46,7 +46,7 @@ body {
 main {
     margin-top: 8vh;
     width: 100vw;
-    height: 70vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -186,7 +186,7 @@ p.show-more:hover {
 
 footer {
     width: 100vw;
-    /* height: 20vh; */
+    height: 20vh;
     margin-top: 1%;
     background-color: var(--lime-green);
     text-align: center;
