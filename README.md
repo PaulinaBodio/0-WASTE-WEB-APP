@@ -53,6 +53,8 @@ npm run dev
 
 ## Issues and to-do:
 * Fixing recipes display
+* Modernize layout
+
 ## Plans for future development:
 
 ## Authors:
